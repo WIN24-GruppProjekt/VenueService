@@ -7,7 +7,7 @@ namespace Persistence.Entities;
 public class LocationRoomEntity
 {
     [Key]
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public int Id { get; set; }
 
     [Required(ErrorMessage = "Room name is required")]
     public string RoomName { get; set; } = null!;
