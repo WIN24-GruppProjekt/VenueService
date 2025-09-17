@@ -9,7 +9,7 @@ namespace Persistence.Repositories;
 
 public class LocationRepository(DataContext context) : BaseRepository<LocationEntity>(context), ILocationRepository
 {
-    public override async Task<RepositoryResult<IEnumerable<LocationEntity>>> GetAllAsync(LocationEntity entity)
+    public override async Task<RepositoryResult<IEnumerable<LocationEntity>>> GetAllAsync()
     {
         try
         {
