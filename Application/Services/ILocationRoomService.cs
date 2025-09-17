@@ -8,7 +8,8 @@ namespace Application.Services
         Task<LocationRoomResult> CreateLocationRoomAsync(CreateLocationRoomRequest request);
         Task<LocationRoomResult> DeleteLocationRoomAsync(int roomId);
         Task<LocationRoomResult<IEnumerable<LocationRoom>>> GetAllLocationRoomsAsync();
-        Task<LocationRoomResult<LocationRoom>> GetLocationRoomByIdAsync(int roomId);
+        Task<LocationRoomResult<LocationRoom>> GetLocationRoomByRoomIdAsync(int roomId);
+        Task<LocationRoomResult<IEnumerable<LocationRoom>>> GetLocationRoomsByLocationIdAsync(string locationId);
         Task<LocationRoomResult> UpdateLocationRoomAsync(int roomId, CreateLocationRoomRequest request);
     }
 }
