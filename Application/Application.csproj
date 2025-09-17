@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Data\Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
