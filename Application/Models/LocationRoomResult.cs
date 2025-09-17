@@ -2,13 +2,13 @@
 
 namespace Application.Models;
 
-public class LocationResult
+public class LocationRoomResult
 {
     public bool Success { get; set; }
     public string? Error { get; set; }
 }
 
-public class LocationResult<T> : LocationResult
+public class LocationRoomResult<T> : LocationRoomResult
 {
     public T? Result { get; set; }
 }

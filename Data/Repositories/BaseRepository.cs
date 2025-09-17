@@ -16,7 +16,7 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
         _table = _context.Set<TEntity>();
     }
 
-    public virtual async Task<RepositoryResult<IEnumerable<TEntity>>> GetAllAsync(TEntity entity)
+    public virtual async Task<RepositoryResult<IEnumerable<TEntity>>> GetAllAsync()
     {
         try
         {
