@@ -5,9 +5,10 @@ using Persistence.Repositories;
 
 namespace Application.Services;
 
-public class LocationRoomService(ILocationRoomRepository locationRoomRepository) : ILocationRoomService
+public class LocationRoomService(ILocationRoomRepository locationRoomRepository, ILocationRepository locationRepository) : ILocationRoomService
 {
     private readonly ILocationRoomRepository _locationRoomRepository = locationRoomRepository;
+    private readonly ILocationRepository _locationRepository = locationRepository;
 
     public async Task<LocationRoomResult> CreateLocationRoomAsync(CreateLocationRoomRequest request)
     {
@@ -47,7 +48,7 @@ public class LocationRoomService(ILocationRoomRepository locationRoomRepository)
             : new LocationRoomResult<IEnumerable<LocationRoom>> { Success = false, Error = result.Error };
     }
 
-    public async Task<LocationRoomResult<LocationRoom>> GetLocationRoomByIdAsync(int roomId)
+    public async Task<LocationRoomResult<LocationRoom>> GetLocationRoomByRoomIdAsync(int roomId)
     {
         var result = await _locationRoomRepository.GetAsync(x => x.Id == roomId);
         if (result.Result == null)
@@ -65,6 +66,36 @@ public class LocationRoomService(ILocationRoomRepository locationRoomRepository)
             ? new LocationRoomResult<LocationRoom> { Success = true, Result = locationRoom }
             : new LocationRoomResult<LocationRoom> { Success = false, Error = result.Error };
     }
+
+    public async Task<LocationRoomResult<IEnumerable<LocationRoom>>> GetLocationRoomsByLocationIdAsync(string locationId)
+    {
+        var result = await _locationRepository.GetAsync(x => x.Id == locationId);
+
+        if (!result.Success || result.Result == null)
+        {
+            return new LocationRoomResult<IEnumerable<LocationRoom>>
+            {
+                Success = false,
+                Error = result.Error ?? "Location not found"
+            };
+        }
+        var locationRooms = result.Result.Rooms?
+            .Select(x => new LocationRoom
+            {
+                Id = x.Id,
+                RoomName = x.RoomName,
+                RoomCapacity = x.RoomCapacity,
+                LocationId = x.LocationId
+            })
+            .ToList() ?? new List<LocationRoom>();
+
+        return new LocationRoomResult<IEnumerable<LocationRoom>>
+        {
+            Success = true,
+            Result = locationRooms
+        };
+    }
+
 
     public async Task<LocationRoomResult> UpdateLocationRoomAsync(int roomId, CreateLocationRoomRequest request)
     {
