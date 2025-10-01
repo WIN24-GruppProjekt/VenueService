@@ -53,12 +53,74 @@ VenueService/
 ### Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - SQL Server (local or cloud)
-- A connection string in `appsettings.json` such as:
+- A connection string in an `appsettings.json` file such as:
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=VenueDb;Trusted_Connection=True;TrustServerCertificate=True;"
 }
 ```
 
+## 📌 API Endpoints
+
+### Locations
+```
+| Method | Endpoint              | Description         |
+| ------ | --------------------- | ------------------- |
+| GET    | `/api/locations`      | Get all locations   |
+| GET    | `/api/locations/{id}` | Get location by ID  |
+| POST   | `/api/locations`      | Create new location |
+| PUT    | `/api/locations/{id}` | Update location     |
+| DELETE | `/api/locations/{id}` | Delete location     |
+```
+
+### Location Rooms
+```
+| Method | Endpoint                                | Description                  |
+| ------ | --------------------------------------- | ---------------------------- |
+| GET    | `/api/locationrooms`                    | Get all rooms                |
+| GET    | `/api/locationrooms/{id}`               | Get room by ID               |
+| GET    | `/api/locationrooms/{locationId}/rooms` | Get all rooms for a location |
+| POST   | `/api/locationrooms`                    | Create new room              |
+| PUT    | `/api/locationrooms/{id}`               | Update room                  |
+| DELETE | `/api/locationrooms/{id}`               | Delete room                  |
+```
+
+## 🧪 Example Requests
+
+### Create Location
+```json
+POST /api/locations
+Content-Type: application/json
+
+{
+  "name": "Downtown Gym",
+  "address": "123 Main St",
+  "postalCode": "12345",
+  "telephone": "+1-555-123-4567",
+  "email": "contact@downtowngym.com",
+  "opensAt": "06:00:00",
+  "closesAt": "22:00:00"
+}
+```
+
+### Create Room
+```json
+POST /api/locationrooms
+Content-Type: application/json
+
+{
+  "roomName": "Yoga Studio",
+  "roomCapacity": 30,
+  "locationId": "location-guid-here"
+}
+```
+
+## 🛠️ Tech Stack
+
+- .NET 8
+- Entity Framework Core
+-SQL Server
+- Swagger / OpenAPI
+- Dependency Injection
 
 
