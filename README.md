@@ -1,6 +1,6 @@
 # VenueService
 
-VenueService is a .NET 8 Web API for managing **gym locations** and their **training rooms**.  
+VenueService is a .NET 9 Web API for managing **gym locations** and their **training rooms**.  
 It provides CRUD operations for locations and rooms, enforces data validation, and exposes REST endpoints for easy integration with other systems.
 
 ---
@@ -51,7 +51,7 @@ VenueService/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 - SQL Server (local or cloud)
 - A connection string in an `appsettings.json` file such as:
 ```json
@@ -117,9 +117,9 @@ Content-Type: application/json
 
 ## 🛠️ Tech Stack
 
-- .NET 8
+- .NET 9
 - Entity Framework Core
--SQL Server
+- SQL Server
 - Swagger / OpenAPI
 - Dependency Injection
 
