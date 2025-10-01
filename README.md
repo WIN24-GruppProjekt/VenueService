@@ -63,7 +63,7 @@ VenueService/
 ## 📌 API Endpoints
 
 ### Locations
-```
+
 | Method | Endpoint              | Description         |
 | ------ | --------------------- | ------------------- |
 | GET    | `/api/locations`      | Get all locations   |
@@ -71,10 +71,10 @@ VenueService/
 | POST   | `/api/locations`      | Create new location |
 | PUT    | `/api/locations/{id}` | Update location     |
 | DELETE | `/api/locations/{id}` | Delete location     |
-```
+
 
 ### Location Rooms
-```
+
 | Method | Endpoint                                | Description                  |
 | ------ | --------------------------------------- | ---------------------------- |
 | GET    | `/api/locationrooms`                    | Get all rooms                |
@@ -83,7 +83,7 @@ VenueService/
 | POST   | `/api/locationrooms`                    | Create new room              |
 | PUT    | `/api/locationrooms/{id}`               | Update room                  |
 | DELETE | `/api/locationrooms/{id}`               | Delete room                  |
-```
+
 
 ## 🧪 Example Requests
 
