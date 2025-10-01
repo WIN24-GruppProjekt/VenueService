@@ -5,7 +5,7 @@ It provides CRUD operations for locations and rooms, enforces data validation, a
 
 ---
 
-## ✨ Features
+## Features
 
 - Manage **locations** (gym branches)
   - Store name, address, postal code, phone, email
@@ -27,7 +27,7 @@ It provides CRUD operations for locations and rooms, enforces data validation, a
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 VenueService/
@@ -48,7 +48,7 @@ VenueService/
 ```
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
@@ -60,7 +60,7 @@ VenueService/
 }
 ```
 
-## 📌 API Endpoints
+## API Endpoints
 
 ### Locations
 
@@ -85,7 +85,7 @@ VenueService/
 | DELETE | `/api/locationrooms/{id}`               | Delete room                  |
 
 
-## 🧪 Example Requests
+## Example Requests
 
 ### Create Location
 ```json
@@ -115,7 +115,7 @@ Content-Type: application/json
 }
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - .NET 9
 - Entity Framework Core
